@@ -165,9 +165,9 @@ function App() {
             </div>
             <div className="social-row">
               <span>Connect with me</span>
-              <a href="#" aria-label="GitHub"><FaGithub /></a>
+              <a href="https://github.com/nischal-niraula21" aria-label="GitHub"><FaGithub /></a>
               <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
-              <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+              <a href="https://www.facebook.com/share/1NCFKfP5U4/" aria-label="Facebook"><FaFacebookF /></a>
               <a href="#" aria-label="Instagram"><FaInstagram /></a>
             </div>
           </div>
@@ -274,9 +274,9 @@ function App() {
               <div><span className="contact-icon"><MapPin /></span><div className="contact-detail"><small>Location</small><span>Jhapa, Nepal</span></div></div>
             </div>
             <div className="social-row contact-socials">
-              <a href="#" aria-label="GitHub"><FaGithub /></a>
+              <a href="https://github.com/nischal-niraula21" aria-label="GitHub"><FaGithub /></a>
               <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
-              <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+              <a href="https://www.facebook.com/share/1NCFKfP5U4/" aria-label="Facebook"><FaFacebookF /></a>
               <a href="#" aria-label="Instagram"><FaInstagram /></a>
             </div>
           </div>
