@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   Code2, MapPin, Send, Rocket, Users, BookOpen, Wrench, Palette, Paintbrush,
-  ExternalLink, Download, Moon, Sun, ArrowUp, MessageCircle, Menu, X, Mail, PhoneCall
+  ExternalLink, Download, Moon, Sun, ArrowUp, MessageCircle, Menu, X, Mail, PhoneCall,
+  Component
 } from 'lucide-react';
 import {
   FaGithub, FaLinkedinIn, FaFacebookF, FaInstagram, FaNodeJs
 } from 'react-icons/fa';
-import { SiExpress, SiKnexdotjs, SiMongodb, SiTailwindcss } from 'react-icons/si';
+import { SiMongodb, SiTailwindcss, SiExpress } from 'react-icons/si';
 import './styles.css';
 
 const skills = [
@@ -16,7 +17,7 @@ const skills = [
   { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
   { name: 'Node.js', component: FaNodeJs },
-  { name: 'Next.js', component: SiKnexdotjs },
+  { name: 'Express.js', component: SiExpress },
   { name: 'MongoDB', component: SiMongodb },
   { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   { name: 'GitHub', component: FaGithub },
