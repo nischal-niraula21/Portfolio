@@ -10,7 +10,7 @@
   --muted: #9da9b8;
   --blue: #0a8cff;
   --blue2: #2e5bff;
-  --nav-bg: rgba(2, 8, 17, .78);
+  --nav-bg: rgba(2, 8, 17, .92);
   --input: #0a1827;
 }
 
@@ -81,6 +81,7 @@ textarea:focus-visible {
   top: 0 !important;
   z-index: 10000 !important;
   background: var(--nav-bg);
+  background: rgba(2, 8, 17, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(93, 140, 185, .12);
@@ -1116,11 +1117,12 @@ footer p {
     flex-direction: column;
     gap: 0;
     padding: 10px;
-    background: rgba(3, 11, 21, .97);
     border: 1px solid rgba(44, 119, 184, .35);
     border-radius: 14px;
     box-shadow: 0 20px 45px rgba(0, 0, 0, .35);
     backdrop-filter: blur(18px);
+    background: rgba(2, 8, 17, 0.92);
+    -webkit-backdrop-filter: blur(18px);
   }
 
   [data-theme="light"] .navbar nav {
