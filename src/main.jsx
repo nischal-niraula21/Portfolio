@@ -7,7 +7,7 @@ import {
 import {
   FaGithub, FaLinkedinIn, FaFacebookF, FaInstagram, FaNodeJs
 } from 'react-icons/fa';
-import { SiExpress, SiMongodb, SiTailwindcss } from 'react-icons/si';
+import { SiExpress, SiKnexdotjs, SiMongodb, SiTailwindcss } from 'react-icons/si';
 import './styles.css';
 
 const skills = [
@@ -16,7 +16,7 @@ const skills = [
   { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
   { name: 'Node.js', component: FaNodeJs },
-  { name: 'Express.js', component: SiExpress },
+  { name: 'Next.js', component: SiKnexdotjs },
   { name: 'MongoDB', component: SiMongodb },
   { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   { name: 'GitHub', component: FaGithub },
