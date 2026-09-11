@@ -10,7 +10,7 @@
   --muted: #9da9b8;
   --blue: #0a8cff;
   --blue2: #2e5bff;
-  --nav-bg: rgba(2, 8, 17, .94);
+  --nav-bg: rgba(2, 8, 17, .96);
   --input: #0a1827;
 }
 
@@ -22,7 +22,7 @@
   --line: #cbdcec;
   --text: #102034;
   --muted: #617286;
-  --nav-bg: rgba(244, 249, 255, .88);
+  --nav-bg: rgba(255, 255, 255, .92);
   --input: #f1f6fb;
 }
 
@@ -81,7 +81,6 @@ textarea:focus-visible {
   top: 0 !important;
   z-index: 10000 !important;
   background: var(--nav-bg);
-  background: rgba(2, 8, 17, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(93, 140, 185, .12);
@@ -1362,5 +1361,82 @@ footer p {
   .typing-cursor,
   .scroll-mouse span {
     animation: none !important;
+  }
+}
+
+/* FINAL NAVBAR + LIGHT MODE FIXES */
+.navbar {
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  box-shadow: 0 1px 0 rgba(93, 140, 185, .10);
+}
+
+[data-theme="light"] .navbar {
+  background: rgba(255, 255, 255, .94) !important;
+  border-bottom-color: rgba(20, 50, 79, .12);
+}
+
+[data-theme="light"] .brand {
+  color: #102034 !important;
+}
+
+[data-theme="light"] nav a {
+  color: #5f7084;
+}
+
+[data-theme="light"] nav a:hover {
+  color: #102034;
+}
+
+[data-theme="light"] .icon-btn,
+[data-theme="light"] .outline-btn {
+  color: #102034 !important;
+  border-color: #5f7fa3 !important;
+  background: rgba(255, 255, 255, .70) !important;
+}
+
+[data-theme="light"] .icon-btn svg,
+[data-theme="light"] .outline-btn svg {
+  color: #102034 !important;
+  stroke: currentColor;
+}
+
+[data-theme="light"] .menu-toggle {
+  color: #102034 !important;
+  border-color: #5f7fa3 !important;
+  background: rgba(255, 255, 255, .70) !important;
+}
+
+[data-theme="light"] .menu-toggle svg {
+  color: #102034 !important;
+  stroke: currentColor;
+}
+
+[data-theme="light"] .social-row a {
+  color: #102034;
+  background: #ffffff;
+  border-color: #cbdcec;
+}
+
+[data-theme="light"] .back-top {
+  color: #0a78d1;
+  background: rgba(255, 255, 255, .94);
+  border-color: #8cb7d9;
+}
+
+@media (max-width: 1050px) {
+  [data-theme="light"] .navbar nav {
+    background: rgba(255, 255, 255, .98) !important;
+    border-color: #cbdcec;
+  }
+
+  [data-theme="light"] .navbar nav a {
+    color: #415368;
+  }
+
+  [data-theme="light"] .navbar nav a:hover {
+    color: #102034;
+    background: rgba(10, 140, 255, .08);
   }
 }
