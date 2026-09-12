@@ -299,8 +299,8 @@ function App() {
           <div className="contact-copy reveal">
             <SectionTitle eyebrow="CONTACT" title="Let’s Work Together" desc="Have a project in mind or just want to say hello? Feel free to reach out!" />
             <div className="contact-list">
-              <a className="contact-email" href="mailto:nischalniraula21@gmail.com"><span className="contact-icon"><Mail /></span><div className="contact-detail">
-                <small>Email</small><span>nischalniraula21@gmail.com</span></div></a>
+              <a className="contact-email"><span className="contact-icon"><Mail /></span><div className="contact-detail">
+                <small>Email</small><span>contact@nischal-niraula.com.np</span></div></a>
               <a href="tel:+9779825983379"><span className="contact-icon"><PhoneCall /></span><div className="contact-detail"><small>Phone</small><span>+977 9825983379</span></div></a>
               <div><span className="contact-icon"><MapPin /></span><div className="contact-detail"><small>Location</small><span>Jhapa, Nepal</span></div></div>
             </div>
