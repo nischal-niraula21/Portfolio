@@ -70,29 +70,19 @@ textarea:focus-visible {
 }
 
 /* NAVBAR */
-
 .navbar {
+  background-color: rgba(93, 140, 185, 0.20);
   height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 6vw;
-
   position: sticky;
   top: 0;
   z-index: 10000;
-
-  background: rgba(2, 8, 17, 0.78);
-
-  backdrop-filter: blur(30px) saturate(145%);
-  -webkit-backdrop-filter: blur(30px) saturate(145%);
-
   border-bottom: 1px solid rgba(93, 140, 185, 0.14);
-
-  box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.18);
-
-  isolation: isolate;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
 }
 
 .navbar>* {
@@ -190,14 +180,12 @@ nav a:hover::after {
 }
 
 [data-theme="light"] .navbar {
-  background: rgba(245, 249, 255, 0.82);
-
-  backdrop-filter: blur(30px) saturate(135%);
-  -webkit-backdrop-filter: blur(30px) saturate(135%);
+  background: rgba(245, 249, 255, 0.94);
 
   border-bottom: 1px solid rgba(80, 110, 140, 0.14);
 
-  box-shadow: 0 8px 30px rgba(40, 60, 80, 0.08);
+  box-shadow:
+    0 8px 30px rgba(40, 60, 80, 0.10);
 }
 
 /* SECTIONS */
