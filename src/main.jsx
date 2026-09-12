@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   Code2, MapPin, Send, Rocket, Users, BookOpen, Wrench, Palette, Paintbrush,
-  ExternalLink, Download, Moon, Sun, ArrowUp, MessageCircle, Menu, X, Mail, PhoneCall,
-  Component
+  ExternalLink, Download, Moon, Sun, ArrowUp, MessageCircle, Menu, X, Mail, PhoneCall
 } from 'lucide-react';
 import {
   FaGithub, FaLinkedinIn, FaFacebookF, FaInstagram, FaNodeJs
@@ -41,7 +40,7 @@ const projects = [
     desc: 'A cozy cafe and restaurant offering great food, warm hospitality, and private cabin booking for a comfortable dining experience.',
     tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
     image: '/lily-cafe.png',
-    link: ' '
+    link: null
   },
   {
     title: 'Coming Soon',
@@ -49,11 +48,13 @@ const projects = [
     desc: 'More practical projects are currently in development.',
     tags: ['Ideas', 'Design', 'Development'],
     emoji: '⚠️',
-    link: ' '
+    link: null
   }
 ];
 
 function SectionTitle({ eyebrow, title, desc }) {
+
+
   return (
     <div className="section-head reveal">
       <span className="eyebrow section-eyebrow">{eyebrow}</span>
@@ -67,10 +68,39 @@ function App() {
   const [lightMode, setLightMode] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [aboutExpanded, setAboutExpanded] = React.useState(false);
+  const [contactStatus, setContactStatus] = React.useState({ type: 'idle', message: '' });
   const roles = React.useMemo(() => ['Full-Stack Developer', 'UI/UX Designer', 'Graphics Designer'], []);
   const [roleIndex, setRoleIndex] = React.useState(0);
   const [typedRole, setTypedRole] = React.useState('');
   const [deletingRole, setDeletingRole] = React.useState(false);
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    setContactStatus({ type: 'sending', message: 'Sending…' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          message: data.get('message'),
+          website: data.get('website')
+        })
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'Unable to send your message.');
+
+      form.reset();
+      setContactStatus({ type: 'success', message: 'Message sent successfully. I’ll get back to you soon.' });
+    } catch (error) {
+      setContactStatus({ type: 'error', message: error.message || 'Something went wrong. Please try again.' });
+    }
+  };
 
   React.useEffect(() => {
     if (lightMode) {
@@ -287,13 +317,15 @@ function App() {
               <h3>Send Me a Message</h3>
               <p>Have something in mind? Send me a message and I’ll get back to you.</p>
             </div>
-            <form className="contact-form" onSubmit={e => e.preventDefault()}>
+            <form className="contact-form" onSubmit={handleContactSubmit}>
               <div className="form-row">
-                <div className="form-field"><label htmlFor="name">Your Name</label><input id="name" placeholder="Enter your name" /></div>
-                <div className="form-field"><label htmlFor="email">Your Email</label><input id="email" type="email" placeholder="Enter your email" /></div>
+                <div className="form-field"><label htmlFor="name">Your Name</label><input id="name" name="name" autoComplete="name" maxLength="80" required placeholder="Enter your name" /></div>
+                <div className="form-field"><label htmlFor="email">Your Email</label><input id="email" name="email" type="email" autoComplete="email" maxLength="160" required placeholder="Enter your email" /></div>
               </div>
-              <div className="form-field message-field"><label htmlFor="message">Your Message</label><textarea id="message" placeholder="Write your message..." /></div>
-              <button type="submit">Send Message <Send size={16} /></button>
+              <div className="form-field message-field"><label htmlFor="message">Your Message</label><textarea id="message" name="message" maxLength="3000" required placeholder="Write your message..." /></div>
+              <div className="form-honeypot" aria-hidden="true"><label htmlFor="website">Website</label><input id="website" name="website" tabIndex="-1" autoComplete="off" /></div>
+              <button type="submit" disabled={contactStatus.type === 'sending'}>{contactStatus.type === 'sending' ? 'Sending…' : 'Send Message'} <Send size={16} /></button>
+              {contactStatus.message && <p className={`form-status ${contactStatus.type}`} role="status">{contactStatus.message}</p>}
             </form>
           </div>
         </section>

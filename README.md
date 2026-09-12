@@ -1,106 +1,81 @@
 # Nischal Niraula — Portfolio
 
-A modern and responsive personal portfolio website built to showcase my skills, projects, services, and journey as a BCA student and aspiring Full-Stack Developer.
+A responsive personal portfolio built with React and Vite to showcase my projects, skills, services, and development journey.
 
-🌐 **Live Website:** https://nischal-niraula.com.np
-
-## About
-
-This portfolio represents my work, technical skills, and experience in web development, UI/UX design, and graphic design.
-
-The website is designed to provide a clean and responsive experience across desktop, tablet, and mobile devices.
+**Live:** https://nischal-niraula.com.np
 
 ## Tech Stack
 
-- React.js
+- React
 - Vite
 - JavaScript
-- CSS3
-- Lucide React
-- Git & GitHub
+- CSS
+- Lucide React / React Icons
+- Cloudflare Workers
 
 ## Features
 
-- Responsive design for desktop and mobile
-- Dark and light theme
-- Sticky responsive navigation bar
-- Animated hero section
-- Typewriter role animation
-- Interactive project cards
-- Expandable About Me section
-- Skills and services showcase
-- Featured projects
-- Contact section
-- Smooth scrolling and scroll animations
-- Animated background effects
-- Back-to-top navigation
+- Responsive desktop and mobile layout
+- Dark and light themes
+- Sticky glass-effect navigation
+- Typewriter and scroll-reveal animations
+- Project, skills, and services sections
+- Downloadable CV
+- Contact form backed by a Cloudflare Worker and Resend
 
-## Featured Projects
-
-### GharKhoj
-
-A full-stack room rental platform designed to help people find and list rental rooms across Nepal.
-
-**Technologies:** React, Node.js, Express.js, MongoDB, Tailwind CSS
-
-### Lily Cafe & Restaurant
-
-A cafe and restaurant website featuring information about the business along with a private cabin booking system.
-
-**Technologies:** HTML, CSS, JavaScript, Tailwind CSS, Node.js, Express.js
-
-## Run Locally
-
-Clone the repository:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/Portfolio.git
-```
-
-Open the project:
-
-```bash
-cd Portfolio
-```
-
-Install dependencies:
+## Local Development
 
 ```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-## Production Build
-
-Create an optimized production build with:
+Create a production build with:
 
 ```bash
 npm run build
 ```
 
-The production files will be generated inside the `dist` directory.
+## Contact Form Setup
+
+The browser posts the form to `/api/contact`. The Worker in `worker/index.js` validates the request and sends the message through Resend. No API key is exposed in the React bundle.
+
+Before using the form in production:
+
+1. Verify `nischal-niraula.com.np` as a sending domain in Resend.
+2. Create a Resend API key.
+3. In Cloudflare, open the `portfolio` Worker and add `RESEND_API_KEY` under **Settings → Variables and Secrets** as a secret.
+4. The default recipient is `nischalniraula21@gmail.com` and the default sender is `Nischal Niraula Portfolio <contact@nischal-niraula.com.np>`. Optional `CONTACT_TO` and `CONTACT_FROM` Worker variables can override them.
+5. Redeploy after the Worker configuration is committed.
+
+For local Worker testing, use a `.dev.vars` file for secrets. `.dev.vars*` is ignored by Git and must never be committed.
 
 ## Deployment
 
-The portfolio is designed to be deployed as a production Vite application and connected to my personal domain:
+The project is configured for Cloudflare Workers Static Assets through `wrangler.jsonc`.
 
-**nischal-niraula.com.np**
+Cloudflare build settings:
 
-## Contact
+```text
+Build command: npm run build
+Deploy command: npx wrangler deploy
+```
 
-**Nischal Niraula**  
-BCA Student & Full-Stack Developer  
-Jhapa, Nepal
+The Worker serves the Vite `dist` output and handles `/api/*` requests before static assets.
 
-Email: nischalniraula21@gmail.com
+## Featured Projects
+
+### GharKhoj
+A full-stack room rental platform for finding and listing rooms across Nepal.
+
+### Lily Cafe & Restaurant
+A cafe and restaurant website with a private cabin booking feature.
 
 ## Author
 
-Developed by **Nischal Niraula**
+**Nischal Niraula**  
+BCA Student & Full-Stack Developer  
+Jhapa, Nepal  
+GitHub: https://github.com/nischal-niraula21
 
 © 2026 Nischal Niraula. All rights reserved.
