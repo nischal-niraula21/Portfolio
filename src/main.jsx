@@ -32,7 +32,7 @@ const projects = [
     desc: 'A web platform to find and list rooms for rent in Nepal, built with a modern full-stack workflow.',
     tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
     image: '/gharkhoj.png',
-    link: 'https://gharkhoj.nischal-niraula.com.np/'
+    link: 'https://www.gharkhoj.nischal-niraula.com.np/'
   },
   {
     title: 'Lily Cafe & Restaurant',
@@ -40,7 +40,7 @@ const projects = [
     desc: 'A cozy cafe and restaurant offering great food, warm hospitality, and private cabin booking for a comfortable dining experience.',
     tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
     image: '/lily-cafe.png',
-    link: null
+    link: 'https://www.lilycaferestaurant.nischal-niraula.com.np/'
   },
   {
     title: 'Coming Soon',
@@ -299,7 +299,7 @@ function App() {
           <div className="contact-copy reveal">
             <SectionTitle eyebrow="CONTACT" title="Let’s Work Together" desc="Have a project in mind or just want to say hello? Feel free to reach out!" />
             <div className="contact-list">
-              <a className="contact-email"><span className="contact-icon"><Mail /></span><div className="contact-detail">
+              <a className="contact-email" ><span className="contact-icon"><Mail /></span><div className="contact-detail">
                 <small>Email</small><span>contact@nischal-niraula.com.np</span></div></a>
               <a href="tel:+9779825983379"><span className="contact-icon"><PhoneCall /></span><div className="contact-detail"><small>Phone</small><span>+977 9825983379</span></div></a>
               <div><span className="contact-icon"><MapPin /></span><div className="contact-detail"><small>Location</small><span>Jhapa, Nepal</span></div></div>
